@@ -17,7 +17,8 @@
 #
 # quit/restart bspwm
 super + alt + {q,r}
-  bspc {quit,wm --restart}
+  echo "no" | tee "$WM_BSPWM_STARTUP_SOUND"; \
+  bspc {quit,wm --restart};
 # close and kill
 super + {_,shift + }w
   bspc node --{close,kill}

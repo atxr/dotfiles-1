@@ -39,6 +39,7 @@ export WM_CONKY_CLOCK="$HOME/.config/conky/vision/Z333-vision.conkyrc"
 export WM_POLYBAR="$HOME/.config/polybar/launch.sh"
 export WM_POLYBAR_THEME="forest"
 export WM_LOCKER="$HOME/.local/bin/slock.sh"
+export WM_BSPWM_STARTUP_SOUND="/tmp/bspwm.sound"
 
 # comment any of the following lines to change the behaviour of the startup of bspwm.
 export WM_USE_DUNST="yes"
@@ -53,7 +54,9 @@ export WM_USE_UNCLUTTER="yes"
 export WM_USE_MOC="yes"
 export WM_USE_EMACS="yes"
 
-export WM_PLAY_STARTUP_SOUND="yes"
+wm_play_startup_sound=$(cat /tmp/bspwm.sound)
+[ -z "$wm_play_startup_sound" ] && export wm_play_startup_sound="yes"
+export WM_PLAY_STARTUP_SOUND="$wm_play_startup_sound"
 export WM_NOTIFY_AT_STARTUP="yes"
 
 # the configuration files.
@@ -208,5 +211,5 @@ bash "$AUTOSTART"
 
 # bspwm has been completely started
 log_ok "bspwm has been fully loaded!"
-[ -n "$WM_NOTIFY_AT_STARTUP" ] && dunstify -u normal -t 10000 -- "bspwm has been fully loaded!"
-[ -n "$WM_PLAY_STARTUP_SOUND" ] && mpv --no-video "$WM_STARTUP_SOUND" &
+[ "$WM_NOTIFY_AT_STARTUP" == "yes" ] && dunstify -u normal -t 10000 -- "bspwm has been fully loaded!"
+[ "$WM_PLAY_STARTUP_SOUND" == "yes" ] && mpv --no-video "$WM_STARTUP_SOUND" &

@@ -38,7 +38,8 @@
           "urgent_border_color:cl13"
         ]
       }
-    }
+    },
+    "commands": ["if pgrep bspwm > /dev/null; then bspc wm --restart; fi"]
   },
   "qtile":
   {
@@ -107,7 +108,14 @@
           "frame_color:cl11"
         ]
       }
-    }
+    },
+    "commands":
+    [
+      "killall dunst",
+      "dunstify 'CRITICAL' 'this would never go away unless clicked' -u critical -t 10000",
+      "dunstify 'NORMAL' 'this goes away after 10 seconds' -u normal",
+      "dunstify 'LOW' 'this goes after 3 seconds' -u low"
+    ]
   },
   "alacritty":
   {
@@ -234,5 +242,35 @@
         ]
       }
     }
+  },
+  "emacs":
+  {
+  },
+  "vim":
+  {
+  },
+  "polybar":
+  {
+  },
+  "rofi":
+  {
+  },
+  "dmenu":
+  {
+  },
+  "dwm":
+  {
+  },
+  "st":
+  {
+  },
+  "surf":
+  {
+  },
+  "tabbed":
+  {
+  },
+  "slock":
+  {
   }
 }

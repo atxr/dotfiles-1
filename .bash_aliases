@@ -108,3 +108,5 @@ alias xonsh="xonsh --rc $XDG_CONFIG_HOME/xonsh/xonshrc"
 
 alias screencast="screencast --output-dir=$HOME/videos/screencast"
 alias mcli="mcli --config-dir $HOME/.config/mcli"
+
+export BASH_SOURCED_FILES=".bash_aliases:$BASH_SOURCED_FILES"

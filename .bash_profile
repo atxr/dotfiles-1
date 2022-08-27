@@ -18,6 +18,8 @@
 # Contributors: Stevan Antoine
 
 echo "$HOME/.bash_profile"
+export BASH_SOURCED_FILES=".bash_profile:$BASH_SOURCED_FILES"
+
 [ ! -s ~/.config/mpd/pid ] && mpd
 if [[ $(fgconsole 2> /dev/null) == 1 ]]; then
     echo "Starting x..."

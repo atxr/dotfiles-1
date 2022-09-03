@@ -109,8 +109,14 @@ def yt-dl-names [
     --channel (-c): string  # the id of the channel
     --path (-p): string = .  # the path where to store to final `.csv` file
     --all (-a)  # download all the playlists from the channel when raised
+    --items (-i) = [
+        playlist "playlist_id" "playlist_index" uploader title id
+    ]  # the list of items to pull for each video
 ] {
-    let format = '"%(playlist)s",%(playlist_id)s,%(playlist_index)s,"%(uploader)s","%(title)s",%(id)s'
+    let pre = '"%('
+    let inner = ($items | str collect ')s","%(')
+    let post = ')s"'
+    let format = $'($pre)($inner)($post)'
 
     let url = if $all {
         $"https://www.youtube.com/channel/($channel)/playlists"

@@ -12,7 +12,7 @@ def clip [] {
     #
     let input = $in;
 
-    if not (which clip.exe | empty?) {
+    if not (which clip.exe | is-empty) {
         $input | clip.exe
     } else {
         $input | xclip -sel clip
@@ -34,7 +34,7 @@ def-env repo [] {
     let choice = (ghq list | fzf | str trim)
 
     # compute the directory to jump to.
-    let path = if ($choice | empty?) {
+    let path = if ($choice | is-empty) {
         $env.PWD
     } else {
         (
@@ -46,7 +46,7 @@ def-env repo [] {
     cd $path
 
     # print a little message.
-    if ($choice | empty?) {
+    if ($choice | is-empty) {
         print "User choose to exit..."
     } else {
         print $"Jumping to ($path)"
@@ -57,7 +57,7 @@ def-env repo [] {
 
         # the status of the repo, in short format,
         # if anything to report.
-        if not (^git status --short | empty?) {
+        if not (^git status --short | is-empty) {
             print "\nSTATUS:"
             ^git --no-pager status --short
         } else {
@@ -65,7 +65,7 @@ def-env repo [] {
         }
 
         # the list of stashes, if any.
-        if not (^git stash list | empty?) {
+        if not (^git stash list | is-empty) {
             print "\nSTASHES:"
             ^git --no-pager stash list
         } else {
@@ -96,7 +96,7 @@ def-env vcfg [] {
         str trim
     )
 
-    if ($choice | empty?) {
+    if ($choice | is-empty) {
         print "User choose to exit..."
     } else {
         vim $choice
@@ -118,7 +118,7 @@ def yt-dl-names [
         $"https://www.youtube.com/playlist?list=($id)"
     }
 
-    if (ls | find $path | empty?) {
+    if (ls | find $path | is-empty) {
         mkdir $path
     }
     let file = ($path | path join $"($id).csv")

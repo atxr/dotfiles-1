@@ -23,7 +23,7 @@ export def checkout [
     let branch = (
         $local_branches | append $remote_branches |
         to text |
-        fzf --ansi |
+        fzf --ansi --prompt "Choose a branch to checkout to: " |
         str trim
     )
 

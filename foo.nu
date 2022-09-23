@@ -7,21 +7,23 @@ export def checkout [
         git --git-dir $git_dir --work-tree $work_tree branch -l |
         lines |
         sort --reverse |
-        str replace -s "*" $"(ansi red)*" |
-        str replace "^" $"(ansi green)" |
+        str replace "^  " $"(ansi green)" |
+        str replace -s "* " $"(ansi red_bold)" |
         str replace "$" $"(ansi reset)"
     )
     let remote_branches = (
         git --git-dir $git_dir --work-tree $work_tree branch -r |
         lines |
-        sort --reverse
+        sort --reverse |
+        find "HEAD -> " --invert |
+        str replace "  \([a-z]*\)\/" $"(ansi yellow)${1}(ansi reset) -> (ansi yellow_dimmed)" |
+        str replace "$" $"(ansi reset)"
     )
 
     let branch = (
         $local_branches | append $remote_branches |
         to text |
         fzf --ansi |
-        str replace -s "*" "" |
         str trim
     )
 

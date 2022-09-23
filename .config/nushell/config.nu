@@ -51,4 +51,5 @@ let-env config = {
 source aliases.nu
 use functions.nu *
 use job.nu
+use gf.nu
 source final.nu

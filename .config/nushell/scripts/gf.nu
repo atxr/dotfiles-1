@@ -8,7 +8,7 @@ export def checkout [
         lines |
         sort --reverse |
         str replace "^  " $"(ansi green)" |
-        str replace -s "* " $"(ansi red_bold)" |
+        str replace -s "* " $"(ansi red)" |
         str replace "$" $"(ansi reset)"
     )
     let remote_branches = (

@@ -377,9 +377,7 @@ cursor:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /usr/bin/fish
-  args:
-    - --login
+  program: /usr/bin/bash
 
 # Startup directory
 #
@@ -604,6 +602,7 @@ key_bindings:
   - {key: O, mods: Alt|Control, action: IncreaseFontSize}
   - {key: U, mods: Alt|Control, action: DecreaseFontSize}
 
+  - {key: L, mods: Control, chars: "\x0c"}
+  - {key: L, mods: Control, action: ClearLogNotice}
+    #- {key: L, mods: Control, chars: "\f"}
   - {key: M, mods: Alt, command: {program: dmenu_run, args: [-fn, Fira Code-20]}}
-  # - {key: L, mods: Control|Shift, action: ClearLogNotice}
-  # - {key: L, mods: Control|Shift, chars: "\f"}

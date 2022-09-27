@@ -166,7 +166,7 @@ font:
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
     # family: TerminessTTF Nerd Font
-    family: Monocraft
+    family: Fira Code
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -186,8 +186,7 @@ font:
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
     # family: TerminessTTF Nerd Font
-    family: Mononoki Nerd Font
-
+    family: Fira Code
     # The `style` can be specified to pick a specific face.
     style: Bold
 
@@ -206,7 +205,7 @@ font:
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
     # family: TerminessTTF Nerd Font
-    family: Mononoki Nerd Font
+    family: Fira Code
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -226,7 +225,7 @@ font:
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
     # family: TerminessTTF Nerd Font
-    family: Mononoki Nerd Font
+    family: Fira Code
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
@@ -605,6 +604,6 @@ key_bindings:
   - {key: O, mods: Alt|Control, action: IncreaseFontSize}
   - {key: U, mods: Alt|Control, action: DecreaseFontSize}
 
-  - {key: M, mods: Alt, command: {program: dmenu_run, args: [-fn, mononoki Nerd Font-20]}}
+  - {key: M, mods: Alt, command: {program: dmenu_run, args: [-fn, Fira Code-20]}}
   # - {key: L, mods: Control|Shift, action: ClearLogNotice}
   # - {key: L, mods: Control|Shift, chars: "\f"}

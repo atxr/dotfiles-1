@@ -44,7 +44,7 @@ super + {_,shift} + F3
 
 # general one-key bindings, mainly to run applications quickly.
 super + Return
-  $WM_TERM $WM_TERM_FLAGS $WM_TERM_SHELL
+  $WM_TERM 
 super + {_,shift,alt} + @space
   rofi -show {drun,run,window}
 super + p

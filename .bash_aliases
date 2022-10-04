@@ -96,7 +96,6 @@ fi
 
 if command -v bat &> /dev/null; then
   alias qlog="bat $HOME/.local/share/qtile/qtile.log"
-  alias cat="bat"
 else
   alias qlog="cat $HOME/.local/share/qtile/qtile.log | less"
 fi
